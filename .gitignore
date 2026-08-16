@@ -1,0 +1,25 @@
+data/
+*.db
+*.mv.db
+*.trace.db
+# IDE and editor settings
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+*.sublime-project
+*.sublime-workspace
+# Environment & credentials
+.env
+*.env
+local.properties
+# Logs
+*.log
+logs/
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

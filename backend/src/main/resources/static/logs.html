@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>USB Security Monitor — Security Logs</title>
+<link rel="stylesheet" href="css/dashboard.css?v=2"/>
+</head>
+<body>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand"><span class="brand-icon" data-icon="shield"></span><span class="brand-name">USB Security<br>Monitor</span></a>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="index.html"   class="nav-link"><span data-icon="gauge"></span> Dashboard</a></li>
+    <li class="nav-item"><a href="devices.html" class="nav-link"><span data-icon="usb"></span> All Devices</a></li>
+    <li class="nav-item"><a href="trusted.html" class="nav-link"><span data-icon="shield"></span> Trusted</a></li>
+    <li class="nav-item"><a href="alerts.html"  class="nav-link"><span data-icon="bell"></span> Alerts</a></li>
+    <li class="nav-item"><a href="logs.html"    class="nav-link active"><span data-icon="list"></span> Logs</a></li>
+  </ul>
+  <div class="sidebar-footer"><div id="monitor-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Connecting…</span></div></div>
+</nav>
+<main class="main-content">
+  <div class="page-header">
+    <h1 class="page-title"><span data-icon="list" style="color:var(--accent-green);margin-right:10px"></span>Security Logs</h1>
+    <p class="page-subtitle">Search, filter, and export the full USB activity history</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <div><label>From Date</label><input type="date" id="filter-from"/></div>
+    <div><label>To Date</label><input type="date" id="filter-to"/></div>
+    <div><label>Event Type</label>
+      <select id="filter-type">
+        <option value="">All types</option>
+        <option>CONNECTED</option><option>DISCONNECTED</option>
+        <option>TRUSTED</option><option>UNTRUSTED</option>
+        <option>ALERT</option><option>BLOCK_SIMULATED</option>
+      </select>
+    </div>
+    <div><label>Risk Level</label>
+      <select id="filter-risk">
+        <option value="">All levels</option>
+        <option>LOW</option><option>MEDIUM</option><option>HIGH</option>
+      </select>
+    </div>
+    <div><label>Device Name</label><input type="text" id="filter-device" placeholder="Search…" style="min-width:160px"/></div>
+    <div><label>Sort</label>
+      <select id="filter-sort"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-end">
+      <button class="btn-sm-dark primary" id="btn-search"><span data-icon="search"></span> Search</button>
+      <button class="btn-sm-dark" id="btn-clear">Clear</button>
+    </div>
+  </div>
+
+  <!-- Export + result count -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+    <span style="font-size:13px;color:var(--text-muted)" id="result-count"></span>
+    <div style="display:flex;gap:8px">
+      <button class="btn-sm-dark" id="btn-csv"><span data-icon="file"></span> Export CSV</button>
+      <button class="btn-sm-dark" id="btn-pdf"><span data-icon="file"></span> Export PDF</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div style="overflow-x:auto"><table class="table-dark-custom">
+      <thead><tr>
+        <th>Timestamp</th><th>Event</th><th>Device</th>
+        <th>Manufacturer</th><th>Risk</th><th>Reason</th>
+      </tr></thead>
+      <tbody id="logs-tbody"><tr><td colspan="6" class="empty-state">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+</main>
+<div id="toast-container"></div>
+<script src="js/icons.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/logs.js?v=2"></script>
+</body>
+</html>

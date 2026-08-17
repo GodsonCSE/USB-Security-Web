@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>USB Security Monitor — Alerts</title>
+<link rel="stylesheet" href="css/dashboard.css?v=2"/>
+</head>
+<body>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand"><span class="brand-icon" data-icon="shield"></span><span class="brand-name">USB Security<br>Monitor</span></a>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="index.html"   class="nav-link"><span data-icon="gauge"></span> Dashboard</a></li>
+    <li class="nav-item"><a href="devices.html" class="nav-link"><span data-icon="usb"></span> All Devices</a></li>
+    <li class="nav-item"><a href="trusted.html" class="nav-link"><span data-icon="shield"></span> Trusted</a></li>
+    <li class="nav-item"><a href="alerts.html"  class="nav-link active"><span data-icon="bell"></span> Alerts</a></li>
+    <li class="nav-item"><a href="logs.html"    class="nav-link"><span data-icon="list"></span> Logs</a></li>
+  </ul>
+  <div class="sidebar-footer"><div id="monitor-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Connecting…</span></div></div>
+</nav>
+<main class="main-content">
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+    <div>
+      <h1 class="page-title"><span data-icon="bell" style="color:var(--risk-high);margin-right:10px"></span>Security Alerts
+        <span id="open-count" style="background:var(--risk-high);color:#fff;font-size:13px;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle"></span>
+      </h1>
+      <p class="page-subtitle">Unknown USB devices trigger alerts. Take action below.</p>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-muted)">
+      <input type="checkbox" id="filter-open" checked style="accent-color:var(--accent-green)"> Show open only
+    </label>
+  </div>
+
+  <div class="disclaimer">
+    <span data-icon="info"></span>
+    <strong>Note:</strong> "Simulate Block" does not actually disable the device — it is a demo action that logs the intent only.
+    Actual blocking would require OS-level administrator privileges.
+  </div>
+
+  <div id="alerts-container">
+    <div class="empty-state"><span data-icon="checkCircle" style="color:var(--risk-low)"></span>Loading alerts…</div>
+  </div>
+</main>
+<div id="toast-container"></div>
+<script src="js/icons.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/alerts.js?v=2"></script>
+</body>
+</html>

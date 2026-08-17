@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>USB Security Monitor — All Devices</title>
+<link rel="stylesheet" href="css/dashboard.css?v=2"/>
+</head>
+<body>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand"><span class="brand-icon" data-icon="shield"></span><span class="brand-name">USB Security<br>Monitor</span></a>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="index.html"   class="nav-link"><span data-icon="gauge"></span> Dashboard</a></li>
+    <li class="nav-item"><a href="devices.html" class="nav-link active"><span data-icon="usb"></span> All Devices</a></li>
+    <li class="nav-item"><a href="trusted.html" class="nav-link"><span data-icon="shield"></span> Trusted</a></li>
+    <li class="nav-item"><a href="alerts.html"  class="nav-link"><span data-icon="bell"></span> Alerts</a></li>
+    <li class="nav-item"><a href="logs.html"    class="nav-link"><span data-icon="list"></span> Logs</a></li>
+  </ul>
+  <div class="sidebar-footer"><div id="monitor-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Connecting…</span></div></div>
+</nav>
+<main class="main-content">
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+    <div>
+      <h1 class="page-title"><span data-icon="usb" style="color:var(--accent-green);margin-right:10px"></span>All Devices</h1>
+      <p class="page-subtitle">Every USB device ever detected — click a row to trust/untrust</p>
+    </div>
+    <button class="btn-sm-dark primary" onclick="loadDevices()"><span data-icon="sync"></span> Refresh</button>
+  </div>
+
+  <div class="disclaimer">
+    <span data-icon="info"></span> Risk levels are heuristic indicators based on whitelist status and metadata completeness. They do <em>not</em> prove a device is malicious.
+  </div>
+
+  <div class="panel">
+    <div style="overflow-x:auto"><table class="table-dark-custom">
+      <thead><tr>
+        <th>Device Name</th><th>Manufacturer</th><th>VID</th><th>PID</th>
+        <th>Serial</th><th>Type</th><th>Status</th><th>Risk</th><th>Action</th>
+      </tr></thead>
+      <tbody id="devices-tbody"><tr><td colspan="9" class="empty-state">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+</main>
+<div id="toast-container"></div>
+<script src="js/icons.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/devices.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Compiled & build artifacts
+backend/target/
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Embedded Database & runtime data
+data/
+*.db
+*.mv.db
+*.trace.db
+
+# IDE and editor settings
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+*.sublime-project
+*.sublime-workspace
+
+# Environment & credentials
+.env
+*.env
+local.properties
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

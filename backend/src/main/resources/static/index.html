@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>USB Security Monitor — Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css?v=2"/>
+</head>
+<body>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand"><span class="brand-icon" data-icon="shield"></span><span class="brand-name">USB Security<br>Monitor</span></a>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="index.html"   class="nav-link active"><span data-icon="gauge"></span> Dashboard</a></li>
+    <li class="nav-item"><a href="devices.html" class="nav-link"><span data-icon="usb"></span> All Devices</a></li>
+    <li class="nav-item"><a href="trusted.html" class="nav-link"><span data-icon="shield"></span> Trusted</a></li>
+    <li class="nav-item"><a href="alerts.html"  class="nav-link"><span data-icon="bell"></span> Alerts</a></li>
+    <li class="nav-item"><a href="logs.html"    class="nav-link"><span data-icon="list"></span> Logs</a></li>
+  </ul>
+  <div class="sidebar-footer"><div id="monitor-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Connecting…</span></div></div>
+</nav>
+<main class="main-content">
+  <div class="page-header">
+    <h1 class="page-title"><span data-icon="gauge" style="color:var(--accent-green);margin-right:10px"></span>Dashboard</h1>
+    <p class="page-subtitle">Real-time USB device security monitoring</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:24px">
+    <div class="stat-card"><div style="display:flex;justify-content:space-between">
+      <div><div class="stat-value" id="stat-connected">-</div><div class="stat-label">Connected Now</div></div>
+      <span class="stat-icon" data-icon="plug"></span></div></div>
+    <div class="stat-card success"><div style="display:flex;justify-content:space-between">
+      <div><div class="stat-value" id="stat-trusted">-</div><div class="stat-label">Trusted Devices</div></div>
+      <span class="stat-icon" data-icon="shield" style="color:var(--risk-low)"></span></div></div>
+    <div class="stat-card warning"><div style="display:flex;justify-content:space-between">
+      <div><div class="stat-value" id="stat-unknown">-</div><div class="stat-label">Unknown Devices</div></div>
+      <span class="stat-icon" data-icon="question" style="color:var(--risk-medium)"></span></div></div>
+    <div class="stat-card danger"><div style="display:flex;justify-content:space-between">
+      <div><div class="stat-value" id="stat-alerts">-</div><div class="stat-label">Open Alerts</div></div>
+      <span class="stat-icon" data-icon="bell" style="color:var(--risk-high)"></span></div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px">
+    <div class="panel">
+      <div class="panel-header"><span><span data-icon="chartPie"></span>Device Overview</span></div>
+      <div class="chart-wrap"><div id="deviceChart"></div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><span><span data-icon="wave"></span>Live Activity Feed</span><span style="font-size:11px;color:var(--text-muted)">Auto-updating</span></div>
+      <div class="activity-feed" id="activity-feed"><div class="empty-state"><span data-icon="satellite"></span>Waiting for USB events…</div></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header"><span><span data-icon="plug"></span>Currently Connected USB Devices</span>
+      <button class="btn-sm-dark" onclick="loadConnectedDevices()"><span data-icon="sync"></span> Refresh</button></div>
+    <div style="overflow-x:auto"><table class="table-dark-custom">
+      <thead><tr><th>Device Name</th><th>VID</th><th>PID</th><th>Serial</th><th>Type</th><th>Status</th><th>Risk</th></tr></thead>
+      <tbody id="connected-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+
+  <div class="disclaimer" style="margin-top:20px">
+    <span data-icon="info"></span> <strong>Heuristic Assessment:</strong>
+    Risk levels are estimated from metadata completeness and whitelist status — they do <em>not</em> prove a device is malicious.
+    This application is intended for a trusted local environment only.
+  </div>
+</main>
+<div id="toast-container"></div>
+<script src="js/icons.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/dashboard.js?v=2"></script>
+</body>
+</html>

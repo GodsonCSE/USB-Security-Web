@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>USB Security Monitor — Trusted Devices</title>
+<link rel="stylesheet" href="css/dashboard.css?v=2"/>
+</head>
+<body>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand"><span class="brand-icon" data-icon="shield"></span><span class="brand-name">USB Security<br>Monitor</span></a>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="index.html"   class="nav-link"><span data-icon="gauge"></span> Dashboard</a></li>
+    <li class="nav-item"><a href="devices.html" class="nav-link"><span data-icon="usb"></span> All Devices</a></li>
+    <li class="nav-item"><a href="trusted.html" class="nav-link active"><span data-icon="shield"></span> Trusted</a></li>
+    <li class="nav-item"><a href="alerts.html"  class="nav-link"><span data-icon="bell"></span> Alerts</a></li>
+    <li class="nav-item"><a href="logs.html"    class="nav-link"><span data-icon="list"></span> Logs</a></li>
+  </ul>
+  <div class="sidebar-footer"><div id="monitor-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Connecting…</span></div></div>
+</nav>
+<main class="main-content">
+  <div class="page-header">
+    <h1 class="page-title"><span data-icon="shield" style="color:var(--accent-green);margin-right:10px"></span>Trusted Devices</h1>
+    <p class="page-subtitle">Whitelist — trusted devices produce LOW risk alerts. To add, go to <a href="devices.html" style="color:var(--accent-green)">All Devices</a>.</p>
+  </div>
+
+  <div class="panel">
+    <div style="overflow-x:auto"><table class="table-dark-custom">
+      <thead><tr>
+        <th>Label</th><th>Device Name</th><th>Manufacturer</th>
+        <th>VID</th><th>PID</th><th>Serial</th><th>Trusted Since</th><th>Action</th>
+      </tr></thead>
+      <tbody id="trusted-tbody"><tr><td colspan="8" class="empty-state">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+</main>
+<div id="toast-container"></div>
+<script src="js/icons.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/trusted.js?v=2"></script>
+</body>
+</html>

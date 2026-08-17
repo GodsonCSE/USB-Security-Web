@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled & build artifacts
 backend/target/
 target/
@@ -7,11 +8,16 @@ target/
 *.ear
 
 # Embedded Database & runtime data
+=======
+>>>>>>> 9fb99ce0992b6ed0cb730324ab636d26855533c5
 data/
 *.db
 *.mv.db
 *.trace.db
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9fb99ce0992b6ed0cb730324ab636d26855533c5
 # IDE and editor settings
 .idea/
 *.iml
@@ -22,16 +28,25 @@ data/
 .factorypath
 *.sublime-project
 *.sublime-workspace
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9fb99ce0992b6ed0cb730324ab636d26855533c5
 # Environment & credentials
 .env
 *.env
 local.properties
+<<<<<<< HEAD
 
 # Logs
 *.log
 logs/
 
+=======
+# Logs
+*.log
+logs/
+>>>>>>> 9fb99ce0992b6ed0cb730324ab636d26855533c5
 # Operating system files
 .DS_Store
 Thumbs.db
